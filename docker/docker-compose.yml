@@ -2,7 +2,7 @@ version: '3'
 
 services:
   reverse-proxy:
-    image: yesenarman/udagram-reverse-proxy
+    image: yesenarman/udagram-reverseproxy
     ports:
       - '8080:80'
 
