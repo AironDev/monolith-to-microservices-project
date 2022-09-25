@@ -9,11 +9,10 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker-compose -f docker/docker-compose-build.yml push
-  #- docker push airondev/udagram-reverseproxy
-  #- docker push airondev/udagram-api-feed
-  #- docker push airondev/udagram-api-user
-  #- docker push airondev/udagram-frontend
+  - docker push airondev/udagram-reverseproxy:latest
+  - docker push airondev/udagram-api-feed:latest
+  - docker push airondev/udagram-api-user:latest
+  - docker push airondev/udagram-frontend:local
 
 #deploy:
   #provider: script
