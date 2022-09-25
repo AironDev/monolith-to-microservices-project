@@ -2,12 +2,12 @@ version: '3'
 
 services:
   reverse-proxy:
-    image: yesenarman/udagram-reverseproxy
+    image: airondev/udagram-reverseproxy
     ports:
       - '8080:80'
 
   feed-api-svc:
-    image: yesenarman/udagram-feed-api
+    image: airondev/udagram-api-feed
     environment:
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -24,7 +24,7 @@ services:
       - '8081:8081'
 
   users-api-svc:
-    image: yesenarman/udagram-users-api
+    image: airondev/udagram-api-user
     environment:
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -36,6 +36,6 @@ services:
       - '8082:8082'
 
   frontend:
-    image: yesenarman/udagram-frontend
+    image: airondev/udagram-frontend
     ports:
       - '4200:8080'
