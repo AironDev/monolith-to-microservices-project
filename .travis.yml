@@ -7,8 +7,15 @@ script:
   - docker --version
   - docker-compose -f docker/docker-compose-build.yml build
 
-deploy:
-  provider: script
-  script: bash docker/docker_push.sh
-  on:
-    branch: main
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push airondev/udagram-reverseproxy
+  - docker push airondev/udagram-api-feed
+  - docker push airondev/udagram-api-user
+  - docker push airondev/udagram-frontend
+
+#deploy:
+  #provider: script
+  #script: bash docker/docker_push.sh
+  #on:
+    #branch: main
