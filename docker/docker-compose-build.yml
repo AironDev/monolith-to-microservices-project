@@ -11,8 +11,8 @@ services:
       - backend-user
       - backend-feed
   backend-feed:
-    image: airondev/udagram-feed-api
-    build: ../udagram-feed-api
+    image: airondev/udagram-api-feed
+    build: ../udagram-api-feed
     environment:
       POSTGRES_USERNAME: $POSTGRES_USERNAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD 
@@ -25,8 +25,8 @@ services:
       URL: "http://localhost:8100"
 
   backend-user:
-    image: airondev/udagram-users-api
-    build: ../udagram-users-api
+    image: airondev/udagram-api-user
+    build: ../udagram-api-user
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
