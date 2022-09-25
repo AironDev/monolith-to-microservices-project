@@ -6,10 +6,10 @@ services:
     build: ../udagram-reverseproxy
     ports:
         - 8080:8080
-      restart: always
-      depends_on:
-        - backend-user
-        - backend-feed
+    restart: always
+    depends_on:
+      - backend-user
+      - backend-feed
   backend-feed:
     image: airondev/udagram-feed-api
     build: ../udagram-feed-api
